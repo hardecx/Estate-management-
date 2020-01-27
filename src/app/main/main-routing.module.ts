@@ -3,10 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../@component/home/home.component';
 import { DashboardComponent } from '../@component/dashboard/dashboard.component';
 import { EmployeeComponent } from '../@component/employee/employee.component';
-import { BasicsalaryComponent } from '../@component/payroll/basicsalary/basicsalary.component';
-import { PayrollComponent } from '../@component/payroll/payroll/payroll.component';
-import { ReportsalaryComponent } from '../@component/payroll/reportsalary/reportsalary.component';
-///employee payroll-reports
+
 
 const routes: Routes = [
   {
@@ -14,10 +11,7 @@ const routes: Routes = [
     component:HomeComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'employee', component: EmployeeComponent },
-      { path: 'basic-salary', component: BasicsalaryComponent },
-      { path: 'payroll', component: PayrollComponent },
-      { path: 'payroll-reports', component: ReportsalaryComponent },
+      { path: 'employee', component: EmployeeComponent }
     ]
   }
 ];
