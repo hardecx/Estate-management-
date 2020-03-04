@@ -2,13 +2,19 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './@component/login/login.component';
 const routes: Routes = [
- // { path: '', component: LoginComponent },
+  
   { path: '', redirectTo: 'main/dashboard', pathMatch: 'full' },
   {
     path: 'main', 
     loadChildren: () => import('./main/main.module').then(m => m.MainModule)
+  },
+  { path: 'login', redirectTo: 'admin/login', pathMatch: 'full'},
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule).catch((err)=>{
+      console.log(err);
+    })
   },
 ];
 

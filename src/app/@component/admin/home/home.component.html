@@ -1,0 +1,42 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue " [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" >Admin Page</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- <li  routerLink="request-loan" routerLinkActive="active" class="nav-item ">
+        <a  class="nav-link waves-light" mdbWavesEffect>Request Loan<span class="sr-only">(current)</span></a>
+      </li> -->
+ 
+
+        <li  *ngFor="let item of view" [routerLink]="item.router" routerLinkActive="active" class="nav-item ">
+          <a  class="nav-link waves-light" mdbWavesEffect>{{item.name}} <span class="sr-only">(current)</span></a>
+        </li>
+        
+    </ul>
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+        
+      <li class="nav-item">
+        <a class="nav-link">{{ UNAME}}<mdb-icon fas icon="person"></mdb-icon></a>
+      </li>
+      <li class="nav-item avatar dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0"></a>
+        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+         
+          <a class="dropdown-item waves-light" (click)="logout()" mdbWavesEffect>Log out</a>
+        </div>
+      </li>
+    </ul>
+  </links>
+
+
+</mdb-navbar>
+ <router-outlet></router-outlet>

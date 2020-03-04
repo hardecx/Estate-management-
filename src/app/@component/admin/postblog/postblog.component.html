@@ -1,0 +1,76 @@
+<!-- Material form contact -->
+<div class="container">
+  <mdb-card>
+
+    <mdb-card-header class="info-color white-text text-center py-4">
+      <h5>
+        <strong>Post Blog</strong>
+      </h5>
+    </mdb-card-header>
+  
+  
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+  
+      <!-- Form -->
+      <form class="text-center" style="color: #757575;" [formGroup]="blog">
+  
+        <!-- Name -->
+        <div class="md-form">
+          <textarea type="text" formControlName='title' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">Title</label>
+        </div>
+  
+        <!-- E-mail -->
+        <div class="md-form">
+               <span for="materialContactFormMessage">Please select an Image</span>          <input type="file" mdbFileSelect (change)="image($event)">
+
+        </div>
+  
+        <!-- Subject -->
+        <div class="md-form">
+          <textarea type="text" formControlName='first' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">First Paragraph</label>
+        </div>
+  
+        <!--Message-->
+        <div class="md-form">
+          <textarea type="text" formControlName='second' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">Second Paragraph</label>
+        </div>
+  
+        <!-- Copy -->
+        <div class="md-form">
+          <textarea type="text" formControlName='quote' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">Quote</label>
+        </div>
+  
+        <!--Message-->
+        <div class="md-form">
+          <textarea type="text" formControlName='third' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">Third Paragraph</label>
+        </div>
+  
+              <!--Message-->
+              <div class="md-form">
+                <textarea type="text" formControlName='fourth' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+                <label for="materialContactFormMessage">Fourth Paragraph</label>
+              </div>
+                            <!--Message-->
+             <div class="md-form">
+                  <textarea type="text" formControlName='posteduser' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+                  <label for="materialContactFormMessage">Author</label>
+             </div>
+        <!-- Send button -->
+        <button mdbBtn color="info" (click)="createBlog()" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect
+          type="submit">Send</button>
+  
+      </form>
+      <!-- Form -->
+  
+    </mdb-card-body>
+  
+  </mdb-card>
+</div>
+
+<!-- Material form contact -->
