@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row">
+      <div class="col-10">
+
+      </div>
+  </div>
+  <div id="data" class="table-responsive">
+      <table class="table">
+          <thead>
+          <tr >
+              <th>Name</th>
+              <th>Email</th>
+              <th>Message</th>
+          </tr >
+          </thead>
+          <tbody>
+          <tr *ngFor="let el of elements;">
+          <td>{{el.name}}</td>
+              <td >{{el.email}}</td>
+              <td>{{el.message}}</td>
+          </tr>
+      </table>
+  </div>
+  <div *ngIf="message" style="padding-left: 40%;">
+      <p>{{messages}}</p>
+  </div>
+</div>
+
+
+
+

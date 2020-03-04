@@ -1,0 +1,222 @@
+<header class="header-section">
+  <div class="header-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 header-top-left">
+          <div class="top-info">
+            <i class="fa fa-phone"></i>
+            +234-01- 873-0204
+          </div>
+          <div class="top-info">
+            <i class="fa fa-envelope"></i>
+            kunledavids@yahoo.com
+          </div>
+        </div>
+        <div class="col-lg-6 text-lg-right header-top-right">
+          <div class="top-social">
+            <a href="https://www.facebook.com/pages/category/Local-Business/Resourceful-Properties-296818430474894/"><i class="fab fa-facebook-f"></i></a>
+            <!-- <a href=""><i class="fab fa-twitter"></i></a> -->
+            <a href="https://www.instagram.com/resourceful_properties/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/resourceful-properties/about/"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <!-- <div class="user-panel">
+            <a href=""><i class="fas fa-user-circle"></i> Register</a>
+            <a href=""><i class="fas fa-sign-in-alt"></i> Login</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div style="margin-top: -80px;">
+          <a href="#" class="site-logo"><img src="../../../assets/logop.png" alt=""></a>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="site-navbar">
+          <div class="nav-switch">
+            <i class="fa fa-bars"></i>
+          </div>
+          <ul class="main-menu">
+            <li><a [routerLink]="['../dashboard']">Home</a></li>
+            <li><a [routerLink]="['../employee']">FEATURED LISTING</a></li>
+            <li><a [routerLink]="['../about']">ABOUT US</a></li>
+            <li><a [routerLink]="['../pages']">Pages</a></li>
+            <li><a [routerLink]="['../blog']">Blog</a></li>
+            <li><a [routerLink]="['../contact']">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Header section end -->
+
+
+<!-- Page top section -->
+<section class="page-top-section single-blog set-bg " data-setbg="../../../assets/img/page-top-bg.jpg">
+  <div class="container text-white">
+    <div class="row">
+      <div class="col-xl-8 offset-lg-2">
+        <h2>{{value.title}}</h2>
+        <a href=""><i class="fa fa-user"></i>{{value.posteduser}}</a>
+        <a href=""><i class="fas fa-clock"></i>{{value.registered | date}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--  Page top end -->
+
+<!-- Breadcrumb -->
+<div class="site-breadcrumb">
+  <div class="container">
+    <a href=""><i class="fa fa-home"></i>Home</a>
+    <span><i class="fa fa-angle-right"></i>Blog Details</span>
+  </div>
+</div>
+
+<!-- page -->
+<section class="page-section single-blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1 blog-share">
+        <h5>Share</h5>
+        <div class="share-links">
+          <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="google-plus"><i class="fab fa-google-plus"></i></a>
+          <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-md-10 singel-blog-content">
+        <img src="{{value.image}}" alt="">
+        <p>{{value.first}}</p>
+        <p>{{value.second}}</p>
+        <blockquote>
+          {{value.quote}}
+        </blockquote>
+        <p>{{value.third}}</p>
+        <p>{{value.fourth}}</p>
+        <div class="blog-tags">
+          <p>Tag:</p>
+          <a href="#">#news,</a>
+          <a href="#">#realestate,</a>
+          <a href="#">#investment,</a>
+          <a href="#"> #price,</a>
+          <a href="#">#market</a>
+        </div>
+        <div class="post-author">
+          <div class="pa-thumb set-bg" data-setbg="../../../assets/logop.png"></div>
+          <div class="pa-content">
+            <h4>{{value.posteduser}}</h4>
+            <p>{{value.quote}}.</p>
+          </div>
+        </div>
+        <disqus-thread [page-identifier]="id" [page-url]="location"></disqus-thread>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- page end-->
+     
+
+<!-- Clients section -->
+<div class="clients-section">
+  <div class="container">
+    <div class="clients-slider owl-carousel">
+      <a href="#">
+        <img src="../../../assets/img/partner/1.png" alt="">
+      </a>
+      <a href="#">
+        <img src="../../../assets/img/partner/2.png" alt="">
+      </a>
+      <a href="#">
+        <img src="../../../assets/img/partner/3.png" alt="">
+      </a>
+      <a href="#">
+        <img src="../../../assets/img/partner/4.png" alt="">
+      </a>
+      <a href="#">
+        <img src="../../../assets/img/partner/5.png" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+<!-- Clients section end -->
+
+
+<!-- Footer section -->
+<footer class="footer-section set-bg" data-setbg="../../../assets/img/footer-bg.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 footer-widget">
+        <img src="../../../assets/img/logo.png" alt="">
+        <p>Lorem ipsum dolo sit azmet, consecter dipise consult  elit. Maecenas mamus antesme non anean a dolor sample tempor nuncest erat.</p>
+        <div class="social">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-pinterest"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 footer-widget">
+        <div class="contact-widget">
+          <h5 class="fw-title">CONTACT US</h5>
+          <p><i class="fa fa-map-marker"></i>3711-2880 Nulla St, Mankato, Mississippi </p>
+          <p><i class="fa fa-phone"></i>(+88) 666 121 4321</p>
+          <p><i class="fa fa-envelope"></i>info.leramiz@colorlib.com</p>
+          <p><i class="fa fa-clock-o"></i>Mon - Sat, 08 AM - 06 PM</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 footer-widget">
+        <div class="double-menu-widget">
+          <h5 class="fw-title">POPULAR PLACES</h5>
+          <ul>
+            <li><a href="">Florida</a></li>
+            <li><a href="">New York</a></li>
+            <li><a href="">Washington</a></li>
+            <li><a href="">Los Angeles</a></li>
+            <li><a href="">Chicago</a></li>
+          </ul>
+          <ul>
+            <li><a href="">St Louis</a></li>
+            <li><a href="">Jacksonville</a></li>
+            <li><a href="">San Jose</a></li>
+            <li><a href="">San Diego</a></li>
+            <li><a href="">Houston</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6  footer-widget">
+        <div class="newslatter-widget">
+          <h5 class="fw-title">NEWSLETTER</h5>
+          <p>Subscribe your email to get the latest news and new offer also discount</p>
+          <form class="footer-newslatter-form">
+            <input type="text" placeholder="Email address">
+            <button><i class="fa fa-send"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-nav">
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Featured Listing</a></li>
+          <li><a href="">About us</a></li>
+          <li><a href="">Pages</a></li>
+          <li><a href="">Blog</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+      </div>
+    </div>
+  </div>
+</footer>

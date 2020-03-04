@@ -8,22 +8,21 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule } from 'ng-uikit-pro-standard';
-import { LoginComponent } from './@component/login/login.component';
+import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule, ToastService } from 'ng-uikit-pro-standard';
 import { SharedModule } from './@shared/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
+    ToastModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
    SharedModule
   ],
-  providers: [MDBSpinningPreloader],
+  providers: [MDBSpinningPreloader,,ToastService],
   bootstrap: [AppComponent],
   schemas:      [ NO_ERRORS_SCHEMA ]
 })
