@@ -14,10 +14,11 @@ import { PostblogComponent } from '../@component/admin/postblog/postblog.compone
 import { HomeComponent } from '../@component/admin/home/home.component';
 import { LoginComponent } from '../@component/login/login.component';
 import { ContactComponent } from '../@component/admin/contact/contact.component';
+import { PropertyComponent } from '../@component/admin/property/property.component';
 
 
 @NgModule({
-  declarations: [PostblogComponent, LoginComponent, HomeComponent, ContactComponent],
+  declarations: [PostblogComponent, LoginComponent, HomeComponent, ContactComponent, PropertyComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

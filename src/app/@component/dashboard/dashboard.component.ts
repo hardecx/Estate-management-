@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, Input } from '@angular/core';
 import * as $ from 'jquery';
 declare var $: any;
+import { DomSanitizer } from '@angular/platform-browser';
+import { ApiService } from 'src/app/@shared/api.service';
+import { APIENUM } from 'src/app/@shared/enum';
+import { ToastService, MdbTableDirective } from 'ng-uikit-pro-standard';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/@shared/shared/shared.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,12 +14,47 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  property:[]
+  searchText: string = '';
+  previous: string;
+  blog:[]
+  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   constructor(
-		private Route : Router,
+    private Api:ApiService,
+    private toastrService: ToastService, 
+    private Route : Router,
+    private shared: SharedService,
+    private _sanitizer: DomSanitizer
 	) { }
-
+  public sanitizeImage(image: string) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
+  }
   ngOnInit() {
+    this.Api.Read(APIENUM.property).subscribe((res:any)=>{
+      this.property = res.data;
+      var mostRecentDate = new Date(Math.max.apply(null, this.property.map( (e:any) => {
+        return new Date(e.registered);
+     })));
+     var mostRecentObject = this.property.filter( (e:any) => { 
+         var d = new Date(e.registered); 
+         return d.getTime() == mostRecentDate.getTime();
+     })[0];
+
+     console.log(mostRecentObject)
+      this.mdbTable.setDataSource(this.property);
+      this.property = this.mdbTable.getDataSource();
+      this.previous = this.mdbTable.getDataSource();
+  },(err:any)=>{
+    
+    this.toastrService.error(err.error.message)
+  })
+
+  this.Api.Read(APIENUM.BLOG).subscribe((res:any)=>{
+    this.blog = res.data;
+},(err:any)=>{
+  
+  this.toastrService.error(err.error.message)
+})
 		
     var window_w = $(window).innerWidth();
     
@@ -184,5 +224,8 @@ export class DashboardComponent implements OnInit {
     
 
       }
-
+      blogy(el){
+        this.Route.navigate(['/main/single-blog'])
+        this.shared.AddInfo(el)
+      }
 }

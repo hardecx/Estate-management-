@@ -32,5 +32,28 @@ CREATE TABLE IF NOT EXISTS blog(
   registered TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   postedUser VARCHAR(128) NOT NULL,
   status VARCHAR(128) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS property(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(300) NOT NULL,
+  city VARCHAR(300) NOT NULL,
+  state VARCHAR(300) NOT NULL,
+  firstimage VARCHAR(300) NOT NULL,
+  secondimage VARCHAR(300),
+  thirdimage VARCHAR(300),
+  fourthimage VARCHAR(300),
+  video VARCHAR(300),
+  description TEXT NOT NULL,
+  type TEXT NOT NULL,
+  feature VARCHAR(300) NOT NULL,
+  amount NUMERIC (5, 2) NOT NULL,
+  Bedrooms INTEGER,
+  age INTEGER,
+  Bathrooms INTEGER,
+  size INTEGER,
+  carpark INTEGER,
+  registered TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  postedUser VARCHAR(128) NOT NULL,
+  status VARCHAR(128) NOT NULL
 )`;
 query(queryString);

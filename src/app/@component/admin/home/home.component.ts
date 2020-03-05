@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
       this.view = [
         { name: 'Blog', router: 'postblog' },
         { name: 'Contact List', router: 'contact' },
+        { name: 'Property', router: 'property' },
 //trackloan
 
       ];

@@ -1,0 +1,145 @@
+<!-- Material form contact -->
+<div class="container">
+  <mdb-card>
+
+    <mdb-card-header class="info-color white-text text-center py-4">
+      <h5>
+        <strong>Post Property</strong>
+      </h5>
+    </mdb-card-header>
+  
+  
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+  
+      <!-- Form -->
+      <form class="text-center" style="color: #757575;" [formGroup]="property">
+  
+        <!-- Name -->
+        <div class="md-form">
+          <textarea type="text" formControlName='name' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">Street Name</label>
+        </div>
+        <div class="md-form">
+          <textarea type="text" formControlName='city' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">City</label>
+        </div>
+        <div class="md-form">
+          <textarea type="text" formControlName='state' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">State</label>
+        </div>
+        <!-- E-mail -->
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" mdbFileSelect (change)="image($event)" multiple/>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Please upload an exterior of the house">
+          </div>
+        </div>
+                <!-- E-mail -->
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <input type="file" mdbFileSelect (change)="secondimage($event)" multiple/>
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Please upload an exterior of the house">
+                  </div>
+                </div>
+                        <!-- E-mail -->
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" mdbFileSelect (change)="thirdimage($event)" multiple/>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Please upload an interior of the house">
+          </div>
+        </div>
+                <!-- E-mail -->
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <input type="file" mdbFileSelect (change)="fourthimage($event)" multiple/>
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Please upload an interior of the house">
+                  </div>
+                </div>
+
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <input type="file" mdbFileSelect (change)="video($event)" multiple/>
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Please select an video">
+                  </div>
+                </div>
+  
+        <!--Message-->
+        <div class="md-form">
+          <textarea type="text" formControlName='description' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
+          <label for="materialContactFormMessage">Description</label>
+        </div>
+  
+        <!-- Copy -->
+        <div class="md-form">
+          <input mdbInput formControlName='type' type="text" id="form2" class="form-control">
+          <label for="materialContactFormMessage">Type</label>
+        </div>
+
+        <div class="md-form">
+          <input mdbInput formControlName='feature' type="text" id="form2" class="form-control">
+          <label for="materialContactFormMessage">feature</label>
+        </div>
+  
+          <div class="md-form">
+          <input mdbInput formControlName='amount' type="number" id="form2" class="form-control">
+          <label for="materialContactFormMessage">Amount</label>
+        </div>
+        <!--Message-->
+        <div class="md-form">
+          <input mdbInput formControlName='bedrooms' type="number" id="form2" class="form-control">
+          <label for="materialContactFormMessage">bedrooms</label>
+        </div>
+  
+              <!--Message-->
+              <div class="md-form">
+                <input mdbInput formControlName='age' type="number" id="form2" class="form-control">
+                <label for="materialContactFormMessage">Age</label>
+              </div>
+                            <!--Message-->
+                            <div class="md-form">
+                              <input mdbInput formControlName='bathrooms' type="number" id="form2" class="form-control">
+                              <label for="materialContactFormMessage">Bathrooms</label>
+                            </div>
+                                                        <!--Message-->
+                                                        <div class="md-form">
+                                                          <input mdbInput formControlName='size' type="number" id="form2" class="form-control">
+                                                          <label for="materialContactFormMessage">size</label>
+                                                        </div>
+                                                        <div class="md-form">
+                                                          <input mdbInput formControlName='carpark' type="number" id="form2" class="form-control">
+                                                          <label for="materialContactFormMessage">Carpark</label>
+                                                        </div>
+                                                        <div class="md-form">
+                                                          <input mdbInput formControlName='posteduser' type="text" id="form2" class="form-control">
+                                                          <label for="materialContactFormMessage">Author</label>
+                                                     </div>
+                                    <!-- Send button -->
+        <!-- Send button -->
+        <button mdbBtn color="info" (click)="createProperty()" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect
+          type="submit">Send</button>
+  
+      </form>
+      <!-- Form -->
+  
+    </mdb-card-body>
+  
+  </mdb-card>
+</div>
+
+<!-- Material form contact -->

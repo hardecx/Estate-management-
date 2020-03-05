@@ -1,3 +1,4 @@
+import Debug from 'debug';
 import pool from './database';
 
 /**
@@ -6,25 +7,25 @@ import pool from './database';
   * @param {string} queryString - the query string
   * @returns {*} nothing
   */
-
+ const debug = Debug('http');
 const query = async (queryString) => {
-  pool.on('connect', () => { console.log('connected to the db'); });
+  pool.on('connect', () => { debug('connected to the db'); });
   pool.query(queryString)
     .then((res) => {
-      console.log(res);
+      debug(res);
 
       pool.end();
     })
 
     .catch((err) => {
-      console.log(err);
+      debug(err);
 
       pool.end();
     });
 
 
   pool.on('remove', () => {
-    console.log('client removed');
+    debug('client removed');
 
     process.exit(0);
   });

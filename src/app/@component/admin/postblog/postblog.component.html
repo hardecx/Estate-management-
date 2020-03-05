@@ -22,11 +22,15 @@
         </div>
   
         <!-- E-mail -->
-        <div class="md-form">
-               <span for="materialContactFormMessage">Please select an Image</span>          <input type="file" mdbFileSelect (change)="image($event)">
-
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" mdbFileSelect (change)="image($event)" multiple/>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Please select an Image">
+          </div>
         </div>
-  
         <!-- Subject -->
         <div class="md-form">
           <textarea type="text" formControlName='first' id="materialContactFormMessage" class="form-control md-textarea" mdbInput></textarea>
