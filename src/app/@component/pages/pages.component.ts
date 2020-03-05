@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
+import { ApiService } from 'src/app/@shared/api.service';
+import { DomSanitizer } from '@angular/platform-browser';
 declare var $: any;
-import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { APIENUM } from 'src/app/@shared/enum';
+import { ToastService, IMyOptions, MdbTableDirective } from 'ng-uikit-pro-standard';
+
 
 @Component({
   selector: 'app-pages',
@@ -9,14 +14,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-  
-
+  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
+  Contact:FormGroup;
+error: any;
+success: any;
+property:[]
+searchText: string = '';
+previous: string;
+recentproperty:any;
   constructor(
-    private Route:
-    Router
+    private Api:ApiService,
+    private toastrService: ToastService,
+    private _fb: FormBuilder,
+    private _sanitizer: DomSanitizer
   ) { }
+  public sanitizeImage(image: string) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
+  }
   ngOnInit() {
-		
+    this.Api.Read(APIENUM.property).subscribe((res:any)=>{
+      this.property = res.data;
+      var mostRecentDate = new Date(Math.max.apply(null, this.property.map( (e:any) => {
+        return new Date(e.registered);
+     })));
+     var mostRecentObject = this.property.filter( (e:any) => { 
+         var d = new Date(e.registered); 
+         return d.getTime() == mostRecentDate.getTime();
+     })[0];
+     this.recentproperty = mostRecentObject;
+     console.log(mostRecentObject)
+      this.mdbTable.setDataSource(this.property);
+      this.property = this.mdbTable.getDataSource();
+      this.previous = this.mdbTable.getDataSource();
+  },(err:any)=>{
+    
+    this.toastrService.error(err.error.message)
+  })
+    this.Contact = this._fb.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', [Validators.required]],
+      status: ['Active'],
+
+
+    });
     var window_w = $(window).innerWidth();
     
     
@@ -184,5 +225,27 @@ export class PagesComponent implements OnInit {
       //   });
     
 
+      }
+      createContact() {
+        this.Contact.disable();
+        let value = { status:'active',...this.Contact.value };
+    
+        this.Api.Create(APIENUM.User, value).subscribe((res: any) => {
+          this.success = res.message
+          this.toastrService.success(res.message)
+        }, err => {
+          this.error = err.error.message;
+          this.Contact.enable();
+          this.toastrService.error(err.error.message)
+    
+        }, () => {
+          setTimeout(() => {
+            this.success = '';
+            this.error = '';
+            this.Contact.reset();
+            this.toastrService.clear();
+            this.Contact.enable();
+          }, 500)
+        })
       }
 }

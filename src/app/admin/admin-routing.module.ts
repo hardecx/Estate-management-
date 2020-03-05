@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../@component/admin/home/home.component';
 import { LoginComponent } from '../@component/login/login.component';
 import { ContactComponent } from '../@component/admin/contact/contact.component';
+import { PropertyComponent } from '../@component/admin/property/property.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
     children: [
       { path: 'postblog', component: PostblogComponent },
       { path: 'contact', component: ContactComponent },
+      { path: 'property', component: PropertyComponent },
 
     ]
   }

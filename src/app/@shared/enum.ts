@@ -4,4 +4,5 @@ export enum APIENUM{
   LOGIN='auth',
   BLOG='blog',
   FILE='upload',
+  property="property"
 }

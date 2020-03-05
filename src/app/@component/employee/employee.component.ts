@@ -1,22 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import * as $ from 'jquery';
 declare var $: any;
+import { ApiService } from 'src/app/@shared/api.service';
+import { ToastService, MdbTableDirective } from 'ng-uikit-pro-standard';
 import { Router } from '@angular/router';
+import { APIENUM } from 'src/app/@shared/enum';
+import { SharedService } from 'src/app/@shared/shared/shared.service';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
-  
-
+  property:[]
+  searchText: string = '';
+  previous: string;
+  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   constructor(
-    private Route:
-    Router
+    private Api:ApiService,
+    private toastrService: ToastService, 
+    private router: Router,
+    private shared: SharedService,
+    private _sanitizer: DomSanitizer
   ) { }
-  
+  public sanitizeImage(image: string) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
+  }
+  @HostListener('input') oninput() {
+    this.searchItems();
+  }
+  @Input() title: string;
   ngOnInit() {
-		
+    this.Api.Read(APIENUM.property).subscribe((res:any)=>{
+      this.property = res.data;
+      
+      this.mdbTable.setDataSource(this.property);
+      this.property = this.mdbTable.getDataSource();
+      this.previous = this.mdbTable.getDataSource();
+  },(err:any)=>{
+    
+    this.toastrService.error(err.error.message)
+  })
     var window_w = $(window).innerWidth();
     
     
@@ -173,16 +198,18 @@ export class EmployeeComponent implements OnInit {
         e.preventDefault();
       });
     
+      }
+      searchItems() {
+        const prev = this.mdbTable.getDataSource();
     
+        if (!this.searchText) {
+          this.mdbTable.setDataSource(this.previous);
+         this.property = this.mdbTable.getDataSource();
+        }
     
-      // $('.video-link').magnificPopup({
-      //       disableOn: 700,
-      //       type: 'iframe',
-      //       mainClass: 'mfp-fade',
-      //       removalDelay: 160,
-      //       preloader: false,
-      //   });
-    
-
+        if (this.searchText) {
+         this.property = this.mdbTable.searchLocalDataBy(this.searchText);
+          this.mdbTable.setDataSource(prev);
+        }
       }
 }
