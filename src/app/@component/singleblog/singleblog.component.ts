@@ -28,7 +28,10 @@ id:string ="";
 
 
   ngOnInit() {
-
+    $('.nav-switch').on('click', function(event) {
+      $('.main-menu').slideToggle(400);
+      event.preventDefault();
+    });
     var window_w = $(window).innerWidth();
     $(window).on('load', function() {
       /*------------------

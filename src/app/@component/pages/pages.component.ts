@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
+declare var $: any;
 import { ApiService } from 'src/app/@shared/api.service';
 import { DomSanitizer } from '@angular/platform-browser';
-declare var $: any;
 import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { APIENUM } from 'src/app/@shared/enum';
 import { ToastService, IMyOptions, MdbTableDirective } from 'ng-uikit-pro-standard';
@@ -57,6 +57,10 @@ recentproperty:any;
       status: ['Active'],
 
 
+    });
+    $('.nav-switch').on('click', function(event) {
+      $('.main-menu').slideToggle(400);
+      event.preventDefault();
     });
     var window_w = $(window).innerWidth();
     

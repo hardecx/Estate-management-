@@ -19,8 +19,11 @@ import { ContactComponent } from '../@component/contact/contact.component';
 import { SharedService } from '../@shared/shared/shared.service';
 import { SingleblogComponent } from '../@component/singleblog/singleblog.component';
 import { DisqusModule } from 'angular2-disqus';
+import { ViewComponent } from '../@component/view/view.component';
+import { InnerviewComponent } from '../@component/innerview/innerview.component';
+import { ViewblogComponent } from '../@component/viewblog/viewblog.component';
 @NgModule({
-  declarations: [HomeComponent, DashboardComponent, EmployeeComponent, AboutComponent, PagesComponent, BlogComponent, ContactComponent, SingleblogComponent],
+  declarations: [HomeComponent, DashboardComponent, EmployeeComponent, AboutComponent, PagesComponent, BlogComponent, ContactComponent, SingleblogComponent, ViewComponent, InnerviewComponent, ViewblogComponent],
   imports: [
     CommonModule,
     MainRoutingModule,

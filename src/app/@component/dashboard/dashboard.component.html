@@ -34,8 +34,8 @@
   <div class="container">
     <div class="row">
       <div class="col-4">
-        <div style="margin-top: -45px;">
-          <a href="#" class="site-logo"><img src="../../../assets/logop.png" alt=""></a>
+        <div class="rowers">
+          <a href="#" class="site-logo"><img src="assets/logop.png" alt=""></a>
         </div>
       </div>
       <div class="col-8">
@@ -60,32 +60,32 @@
   <mdb-carousel class="hero-section set-bg"  [isControls]="false" [animation]="'slide'">
     <mdb-carousel-item>
       <div class="view w-100">
-        <img class="d-block w-100" src="../../../assets/img/bg.jpg" alt="First slide">
+        <img src="assets/img/bg.jpg" alt="First slide">
       </div>
       <div class="carousel-caption">
-        <h2 style="color: white; font-weight: bolder;">Find your place with our local life style</h2>
+        <h2 class="h3-responsive" style="color: white; font-weight: bolder;">Find your place with our local life style</h2>
         <p style="color: white;">Search real estate property records, houses, condos, land and more on resourcefulproperties.com®.<br>Find property info from the most comprehensive source data.</p>
-        <a href="#" class="site-btn">VIEW DETAIL</a>
+        <a [routerLink]="['../employee']"  style="cursor: pointer;" class="site-btn">VIEW DETAIL</a>
       </div>
     </mdb-carousel-item>
     <mdb-carousel-item>
       <div class="view w-100">
-        <img class="d-block w-100" src="../../../assets/home3.jpg" alt="Second slide">
+        <img class="d-block w-100" src="assets/home3.jpg"alt="Second slide">
       </div>
       <div class="carousel-caption">
-        <h2 style="color: white; font-weight: bolder;">Find your place with our local life style</h2>
+        <h2 class="h3-responsive"style="color: white; font-weight: bolder;">Find your place with our local life style</h2>
         <p style="color: white;">Search real estate property records, houses, condos, land and more on resourcefulproperties.com®.<br>Find property info from the most comprehensive source data.</p>
-        <a href="#" class="site-btn">VIEW DETAIL</a>
+        <a [routerLink]="['../employee']"  style="cursor: pointer;" class="site-btn">VIEW DETAIL</a>
       </div>
     </mdb-carousel-item>
     <mdb-carousel-item>
       <div class="view w-100">
-        <img class="d-block w-100" src="../../../assets/home21.jpg" alt="Third slide">
+        <img class="d-block w-100" src="assets/home21.jpg" alt="Third slide">
       </div>
       <div class="carousel-caption">
-        <h2 style="color: white; font-weight: bolder;">Find your place with our local life style</h2>
+        <h2 class="h3-responsive" style="color: white; font-weight: bolder;">Find your place with our local life style</h2>
         <p style="color: white;">Search real estate property records, houses, condos, land and more on resourcefulproperties.com®.<br>Find property info from the most comprehensive source data.</p>
-        <a href="#" class="site-btn">VIEW DETAIL</a>
+        <a [routerLink]="['../employee']" class="site-btn">VIEW DETAIL</a>
       </div>
     </mdb-carousel-item>
   </mdb-carousel>
@@ -114,13 +114,13 @@
     <div class="row">
       <div class="col-md-6" *ngFor="let item of property | slice:0:4;">
         <div class="propertie-item set-bg" [style.background-image]="sanitizeImage(item.firstimage)">
-          <div class="sale-notic">{{item.feature}}</div>
+          <div class="sale-notic">For {{item.feature}}</div>
           <div class="propertie-info text-white">
             <div class="info-warp">
               <h5>{{item.name}}</h5>
               <p><i class="fa fa-map-marker"></i> {{item.city}},     {{item.state}}</p>
             </div>
-            <div class="price">{{item.amount | currency: "₦"}}</div>
+            <div (click)="view(item)" style="cursor: pointer;" class="price">{{item.amount | currency: "₦"}}</div>
           </div>
         </div>
       </div>
@@ -128,11 +128,11 @@
   </div>
 </section>
 
-	 <section class="services-section spad set-bg" data-setbg="../../../assets/service-bg.jpg">
+	 <section class="services-section spad set-bg" data-setbg="assets/service-bg.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
-					<img src="../../../assets/service.jpg" alt="">
+					<img src="assets/service.jpg" alt="">
 				</div>
 				<div class="col-lg-5 offset-lg-1 pl-lg-0">
 					<div class="section-title text-white">
@@ -176,7 +176,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="../../../assets/img/feature/1.jpg">
+						<div class="feature-pic set-bg" data-setbg="assets/img/feature/1.jpg">
 							<div class="sale-notic">FOR SALE</div>
 						</div>
 						<div class="feature-text">
@@ -210,7 +210,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="../../../assets/img/feature/2.jpg">
+						<div class="feature-pic set-bg" data-setbg="assets/img/feature/2.jpg">
 							<div class="sale-notic">FOR SALE</div>
 						</div>
 						<div class="feature-text">
@@ -245,7 +245,7 @@
 				<div class="col-lg-4 col-md-6">
 				
 					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="../../../assets/img/feature/3.jpg">
+						<div class="feature-pic set-bg" data-setbg="assets/img/feature/3.jpg">
 							<div class="rent-notic">FOR Rent</div>
 						</div>
 						<div class="feature-text">
@@ -280,7 +280,7 @@
 				<div class="col-lg-4 col-md-6">
 		
 					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="../../../assets/img/feature/4.jpg">
+						<div class="feature-pic set-bg" data-setbg="assets/img/feature/4.jpg">
 							<div class="sale-notic">FOR SALE</div>
 						</div>
 						<div class="feature-text">
@@ -315,7 +315,7 @@
 				<div class="col-lg-4 col-md-6">
 			
 					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="../../../assets/img/feature/5.jpg">
+						<div class="feature-pic set-bg" data-setbg="assets/img/feature/5.jpg">
 							<div class="rent-notic">FOR Rent</div>
 						</div>
 						<div class="feature-text">
@@ -350,7 +350,7 @@
 				<div class="col-lg-4 col-md-6">
 				
 					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="../../../assets/img/feature/6.jpg">
+						<div class="feature-pic set-bg" data-setbg="assets/img/feature/6.jpg">
 							<div class="sale-notic">FOR SALE</div>
 						</div>
 						<div class="feature-text">
@@ -394,19 +394,19 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-md-6 f-cata">
-					<img src="../../../assets/img/feature-cate/1.jpg" alt="">
+					<img src="assets/img/feature-cate/1.jpg" alt="">
 					<h5>Apartment for rent</h5>
 				</div>
 				<div class="col-lg-3 col-md-6 f-cata">
-					<img src="../../../assets/img/feature-cate/2.jpg" alt="">
+					<img src="assets/img/feature-cate/2.jpg" alt="">
 					<h5>Family Home</h5>
 				</div>
 				<div class="col-lg-3 col-md-6 f-cata">
-					<img src="../../../assets/img/feature-cate/3.jpg" alt="">
+					<img src="assets/img/feature-cate/3.jpg" alt="">
 					<h5>Resort Villas</h5>
 				</div>
 				<div class="col-lg-3 col-md-6 f-cata">
-					<img src="../../../assets/img/feature-cate/4.jpg" alt="">
+					<img src="assets/img/feature-cate/4.jpg" alt="">
 					<h5>Office Building</h5>
 				</div>
 			</div>
@@ -414,7 +414,7 @@
   </section>
 
 	<!-- Review section -->
-	<section class="review-section set-bg" data-setbg="../../../assets/img/review-bg.jpg">
+	<section class="review-section set-bg" data-setbg="assets/img/review-bg.jpg">
 		<div class="container">
 			<div class="review-slider owl-carousel">
 				<div class="review-item text-white">
@@ -428,7 +428,7 @@
 					<p>“Resourceful Properties was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
 					<h5>Adeogo Adejana</h5>
 					<span>CEP’s Director</span>
-					<div class="clint-pic set-bg" data-setbg="../../../assets/img/review/1.jpg"></div>
+					<div class="clint-pic set-bg" data-setbg="assets/img/review/1.jpg"></div>
 				</div>
 				<div class="review-item text-white">
 					<div class="rating">
@@ -441,7 +441,7 @@
 					<p>“Resourceful Properties was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
 					<h5>Kayode Mustapha</h5>
 					<span>CEP’s Director</span>
-					<div class="clint-pic set-bg" data-setbg="../../../assets/img/review/1.jpg"></div>
+					<div class="clint-pic set-bg" data-setbg="assets/img/review/1.jpg"></div>
 				</div>
 				<div class="review-item text-white">
 					<div class="rating">
@@ -454,7 +454,7 @@
 					<p>“Resourceful Properties was quick to understand my needs and steer me in the right direction. Their professionalism and warmth made the process of finding a suitable home a lot less stressful than it could have been. Thanks, agent Tony Holland.”</p>
 					<h5>Akeem Yusuf</h5>
 					<span>CEP’s Director</span>
-					<div class="clint-pic set-bg" data-setbg="../../../assets/img/review/1.jpg"></div>
+					<div class="clint-pic set-bg" data-setbg="assets/img/review/1.jpg"></div>
 				</div>
 			</div>
 		</div>
@@ -472,8 +472,8 @@
 			<div class="row">
 				<!-- blog post -->
 				<div class="col-lg-4 col-md-6 blog-item" *ngFor="let item of blog | slice:0:3; let index =i;">
-					<img src="{{item.image}}" alt="">
-					<h5><a (click)="blogy(item)">{{item.title}}</a></h5>
+					<img  (click)="blogy(item)"  style="cursor: pointer;" src="{{item.image}}" alt="">
+					<h5><a (click)="blogy(item)"  style="cursor: pointer;">{{item.title}}</a></h5>
 					<div class="blog-meta">
 						<span><i class="fa fa-user"></i>{{item.posteduser}}</span>
 						<span><i class="fa fa-clock-o"></i>{{item.registered | date}}</span>
@@ -493,23 +493,23 @@
 					<img src="https://www.ibm.com/innovate/branding/logoartwork/logoartwork.nsf/IBM_logoRR_pos_RGB.gif" height='60px' alt="">
 				</a>
 				<a href="#">
-					<img src="../../../assets/img/partner/3.png"  height='60px' alt="">
+					<img src="assets/img/partner/3.png"  height='60px' alt="">
 				</a>
 				<a href="#">
-					<img src="../../../assets/img/partner/4.png"  height='60px' alt="">
+					<img src="assets/img/partner/4.png"  height='60px' alt="">
 				</a>
 				<a href="#">
-					<img src="../../../assets/img/partner/5.png"  height='60px' alt="">
+					<img src="assets/img/partner/5.png"  height='60px' alt="">
 				</a>
 			</div>
 		</div>
 	</div>
 	<!-- Footer section -->
-	<footer class="footer-section set-bg" data-setbg="../../../assets/img/footer-bg.jpg">
+	<footer class="footer-section set-bg" data-setbg="assets/img/footer-bg.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 footer-widget">
-					<img src="../../../assets/logop.png" alt="">
+					<img src="assets/logop.png" alt="">
 					<p>Resourceful Properties is the Real Estate Consultants firm and resulted from the need to adequately service our client’s interests in property related matters which have arisen</p>
 					<div class="social">
             <a href="https://www.facebook.com/pages/category/Local-Business/Resourceful-Properties-296818430474894/"><i class="fab fa-facebook-f"></i></a>
