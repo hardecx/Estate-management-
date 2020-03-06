@@ -39,11 +39,6 @@ export class DashboardComponent implements OnInit {
          var d = new Date(e.registered); 
          return d.getTime() == mostRecentDate.getTime();
      })[0];
-
-     console.log(mostRecentObject)
-      this.mdbTable.setDataSource(this.property);
-      this.property = this.mdbTable.getDataSource();
-      this.previous = this.mdbTable.getDataSource();
   },(err:any)=>{
     
     this.toastrService.error(err.error.message)
@@ -55,7 +50,10 @@ export class DashboardComponent implements OnInit {
   
   this.toastrService.error(err.error.message)
 })
-		
+$('.nav-switch').on('click', function(event) {
+  $('.main-menu').slideToggle(400);
+  event.preventDefault();
+});
     var window_w = $(window).innerWidth();
     
     
@@ -223,6 +221,10 @@ export class DashboardComponent implements OnInit {
       //   });
     
 
+      }
+      view(el){
+        this.Route.navigate(['/main/view'])
+        this.shared.AddInfo(el)
       }
       blogy(el){
         this.Route.navigate(['/main/single-blog'])

@@ -37,7 +37,7 @@ class FileController {
             name: files.name,
             mimetype: files.mimetype,
             size: files.size,
-            path: `http://localhost:3000/ftp/uploads/${files.name}`
+            path: `https://resoutcefulestatemanagement.herokuapp.com/ftp/uploads/${files.name}`
           }
         });
       }

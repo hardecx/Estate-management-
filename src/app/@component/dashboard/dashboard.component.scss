@@ -1,42 +1,31 @@
-html,
-body,
-.view {
-  height: 100vh;
-}
+
 
 /* Full Page Carousel itself*/
-.carousel {
-  height: 100vh;
-}
+// .carousel {
+//   height: 100vh;
+// }
 
-.carousel .carousel-inner {
-  height: 100vh;
-}
+// .carousel .carousel-inner {
+//   height: 100vh;
+// }
 
-.carousel .carousel-inner .carousel-item,
-.carousel .carousel-inner .active {
-  height: 100vh;
-}
+// .carousel .carousel-inner .carousel-item,
+// .carousel .carousel-inner .active {
+//   height: 100vh;
+// }
 
-img {
-  &.d-block {
-    height: 100vh;
-  }
-}
+// img {
+//   &.d-block {
+//     height: 100%;
+//     width: 100%;
+//   }
+// }
 
-.propertie-item{
-  background-image: url("../../../assets/img/propertie/1.jpg");
-}
+// .propertie-item{
+//   background-image: url("../../../assets/img/propertie/1.jpg");
+// }
 .carousel-caption {
-  position: absolute;
-  right: 15%;
-  bottom: 20px;
-  left: 15%;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 190px;
-  color: #fff;
-  text-align: center;
+  padding-bottom: 8%;
 }
 /**
  * Owl Carousel v2.2.1
@@ -208,3 +197,5 @@ img {
   z-index: 1;
   height: 100%;
   width: 100%; }
+
+  
