@@ -6,6 +6,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { APIENUM } from 'src/app/@shared/enum';
 import { ToastService, IMyOptions, MdbTableDirective } from 'ng-uikit-pro-standard';
+import { SharedService } from 'src/app/@shared/shared/shared.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,10 +25,12 @@ searchText: string = '';
 previous: string;
 recentproperty:any;
   constructor(
+    private shared: SharedService,
     private Api:ApiService,
     private toastrService: ToastService,
     private _fb: FormBuilder,
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
+    private router: Router,
   ) { }
   public sanitizeImage(image: string) {
     return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
@@ -251,5 +255,9 @@ recentproperty:any;
             this.Contact.enable();
           }, 500)
         })
+      }
+      view(el){
+        this.router.navigate(['/main/innerview'])
+        this.shared.AddInfo(el)
       }
 }

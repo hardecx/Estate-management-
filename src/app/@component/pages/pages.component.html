@@ -117,7 +117,7 @@
 							</div>
 							<div class="col-md-4 col-sm-6">
 								<p><i class="fa fa-car"></i>{{recentproperty.carpark}} Garages</p>
-								<p><i class="fa fa-building-o"></i>{{recentproperty.type}}</p>
+								<p><i class="fas fa-building"></i>{{recentproperty.type}}</p>
 								<p><i class="fas fa-clock"></i>{{recentproperty.registered | date}}</p>
 							</div>
 							<div class="col-md-4">
@@ -167,7 +167,7 @@
 								<h5>{{item.name}}</h5>
 								<p><i class="fa fa-map-marker"></i> {{item.city}}, {{item.state}}</p>
 							</div>
-							<a href="#" class="rp-price">{{item.amount | currency:"₦"}}</a>
+							<a (click)='view(item)' class="rp-price">{{item.amount | currency:"₦"}}</a>
 						</div>
 					</div>
 				</div>
@@ -222,7 +222,7 @@
 							 </p>
 						<p><i class="fa fa-phone"></i>+234-(0)803-473- 8744</p>
 						<p><i class="fa fa-envelope"></i>kunledavids@yahoo.com</p>
-						<p><i class="fa fa-clock-o"></i>Mon - Sat, 08 AM - 06 PM</p>
+						<p><i class="fas fa-clock"></i>Mon - Sat, 08 AM - 06 PM</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 footer-widget">
