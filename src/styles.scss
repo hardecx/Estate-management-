@@ -6,7 +6,48 @@
 @import "./assets/css/magnific-popup.css";
 @import "./assets/css/owl.carousel.css";
 @import url('https://fonts.googleapis.com/css?family=br-firma-sb+27px');
+@font-face {
+  font-family: ‘BR Firma CW’;
+  src: url(assets/fonts/br-firma-sb.woff2) format(‘woff2’);
+ 
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: ‘Sailec’;
+  src: url(assets/fonts/sailec-reg.woff2) format(‘woff2’);
+  
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face{
+  font-family:“Frank”;
+  src:url(assets/fonts/Frank-Regular.eot) format(“embedded-opentype”),url(assets/fonts/Frank-Light.woff) format(“woff”),url(assets/fonts/Frank-Regular.ttf) format(“truetype”);
+  font-style:normal;
+  /* font-weight:500 */
+}
+/*@font-face{
+  font-family:“Circulartt”;
+  src:url(assets/fonts/Circular-Book.eot) format(“embedded-opentype”),url(assets/fonts/Circular-Book.woff) format(“woff”),url(assets/fonts/Circular-Book.ttf) format(“truetype”),url(assets/fonts/Circular-Book.svg) format(“svg”);
+  font-style:normal;
+  /* font-weight:500 */
+/*}*/
+@font-face {
+  font-family: 'Circular';
+  src: url('assets/fonts/Circular-Book.eot') format('embedded-opentype'),
+       url('assets/fonts/Circular-Book.woff') format('woff'),
+       url('assets/fonts/Circular-Book.ttf') format('truetype'),
 
+  }
+
+* {
+
+  font-family: 'Sailec' , 'Frank' , 'Circular' , 'BR Firma CW';
+  box-shadow: none!important;
+
+}
 :root{
 overflow: visible;
 
@@ -15,15 +56,17 @@ overflow: visible;
 	margin-top: -50px;
 }
 .view img {
-  height: 100vh;
+    width: auto ;
+  max-width: 100% ;
+  height: auto ;
 }
-
+.blockmad{
+	display: block;
+}
 html,
 body {
 	height: 100%;
-	font-family: 'Source Sans Pro', sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
 }
 
 h1,
@@ -331,6 +374,7 @@ ol {
 	font-size: 22px;
 	margin-bottom: 50px;
 }
+
 
 /*------------------
   Filter search
@@ -1877,6 +1921,7 @@ ol {
 	.rowers{
 		margin-top: -10px;
 	}
+
 	.view img {
 		height: 75vh;
 	}
@@ -1952,6 +1997,7 @@ ol {
 	.view img {
 		height: 75vh;
 	}
+
 	.header-top-right {
 		text-align: center;
 	}
@@ -2131,4 +2177,5 @@ ol {
 	.view img {
 		height: 75vh;
 	}
+
 }

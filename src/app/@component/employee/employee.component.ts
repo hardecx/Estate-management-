@@ -27,17 +27,13 @@ export class EmployeeComponent implements OnInit {
   public sanitizeImage(image: string) {
     return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
   }
-  @HostListener('input') oninput() {
-    this.searchItems();
-  }
-  @Input() title: string;
+  // @HostListener('input') oninput() {
+  //   this.searchItems();
+  // }
+  // @Input() title: string;
   ngOnInit() {
     this.Api.Read(APIENUM.property).subscribe((res:any)=>{
       this.property = res.data;
-      
-      this.mdbTable.setDataSource(this.property);
-      this.property = this.mdbTable.getDataSource();
-      this.previous = this.mdbTable.getDataSource();
   },(err:any)=>{
     
     this.toastrService.error(err.error.message)
@@ -204,19 +200,19 @@ export class EmployeeComponent implements OnInit {
       });
     
       }
-      searchItems() {
-        const prev = this.mdbTable.getDataSource();
+      // searchItems() {
+      //   const prev = this.mdbTable.getDataSource();
     
-        if (!this.searchText) {
-          this.mdbTable.setDataSource(this.previous);
-         this.property = this.mdbTable.getDataSource();
-        }
+      //   if (!this.searchText) {
+      //     this.mdbTable.setDataSource(this.previous);
+      //    this.property = this.mdbTable.getDataSource();
+      //   }
     
-        if (this.searchText) {
-         this.property = this.mdbTable.searchLocalDataBy(this.searchText);
-          this.mdbTable.setDataSource(prev);
-        }
-      }
+      //   if (this.searchText) {
+      //    this.property = this.mdbTable.searchLocalDataBy(this.searchText);
+      //     this.mdbTable.setDataSource(prev);
+      //   }
+      // }
       view(el){
         this.router.navigate(['/main/view'])
         this.shared.AddInfo(el)

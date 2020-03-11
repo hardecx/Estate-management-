@@ -22,7 +22,7 @@ import { SharedModule } from './@shared/shared/shared.module';
     AppRoutingModule,
    SharedModule
   ],
-  providers: [MDBSpinningPreloader,,ToastService],
+  providers: [MDBSpinningPreloader,ToastService],
   bootstrap: [AppComponent],
   schemas:      [ NO_ERRORS_SCHEMA ]
 })

@@ -7,7 +7,7 @@ class BlogValidate {
   // eslint-disable-next-line consistent-return
   static validateBlog(request, response, next) {
     const {
-      title, image, first, second, quote, third, fourth, posteduser
+      title, image, first, second, quote, third, fourth, posteduser, status
     } = request.body;
 
     if (!title || title.trim().length === 0) {
@@ -59,6 +59,12 @@ class BlogValidate {
       return response.status(400).json({
         status: statusCodes.badRequest,
         error: 'Posted User is required',
+      });
+    }
+    if (!status || status.trim().length === 0) {
+      return response.status(400).json({
+        status: statusCodes.badRequest,
+        error: 'Status is required',
       });
     }
     next();
