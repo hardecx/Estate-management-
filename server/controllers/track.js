@@ -1,5 +1,6 @@
 
 import data from '../model/track';
+import statusCodes from '../helpers/statuscodes';
 import db from '../migration/database';
 
 
@@ -40,6 +41,13 @@ class TrackController {
    */
 
   static async create(request, response) {
+    const foundUser = await data.searchByEmail(request.body.email);
+    if (foundUser.rowCount > 0) {
+      return response.status(409).json({
+        status: statusCodes.badRequest,
+        error: 'Email is already taken',
+      });
+    }
     const result = await data.createTrack(request.body);
     const {
       userid,

@@ -43,6 +43,17 @@ class Track {
 
     return response;
   }
+  /**
+   * @param {*} email
+   * @returns { object } user object
+   */
+
+  static searchByEmail(email) {
+    const query = 'SELECT * FROM track WHERE Email=$1';
+    const result = db.query(query, [email]);
+
+    return result;
+  }
 }
 
 export default Track;
