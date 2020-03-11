@@ -47,9 +47,9 @@ recentproperty:any;
      })[0];
      this.recentproperty = mostRecentObject;
      console.log(mostRecentObject)
-      this.mdbTable.setDataSource(this.property);
-      this.property = this.mdbTable.getDataSource();
-      this.previous = this.mdbTable.getDataSource();
+      // this.mdbTable.setDataSource(this.property);
+      // this.property = this.mdbTable.getDataSource();
+      // this.previous = this.mdbTable.getDataSource();
   },(err:any)=>{
     
     this.toastrService.error(err.error.message)

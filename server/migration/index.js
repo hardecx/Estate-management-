@@ -7,7 +7,7 @@ import pool from './database';
   * @param {string} queryString - the query string
   * @returns {*} nothing
   */
- const debug = Debug('http');
+const debug = Debug('http');
 const query = async (queryString) => {
   pool.on('connect', () => { debug('connected to the db'); });
   pool.query(queryString)
