@@ -6,19 +6,20 @@ import swaggerUi from 'swagger-ui-express';
 import Debug from 'debug';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import fileupload from 'express-fileupload';
-import serveIndex from 'serve-index';
+// import fileupload from 'express-fileupload';
+// import serveIndex from 'serve-index';
 import swaggerDocument from '../swagger.json';
 import routes from './route';
+
 
 dotenv.config();
 
 const app = express();
-app.use('/ftp', express.static('public'), serveIndex('public', { icons: true }));
+// app.use('/ftp', express.static('public'), serveIndex('public', { icons: true }));
 app.use(logger('dev'));
-app.use(fileupload({
-  createParentPath: true
-}));
+// app.use(fileupload({
+//   createParentPath: true
+// }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());

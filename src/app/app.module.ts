@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
 import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule, ToastService } from 'ng-uikit-pro-standard';
 import { SharedModule } from './@shared/shared/shared.module';
 

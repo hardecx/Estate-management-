@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-
+    if(!this.UNAME){
+      this.logout;
+    } 
 
   }
 
@@ -28,7 +30,6 @@ export class HomeComponent implements OnInit {
 
 
     let views = ''
-    if (this.WHOI) {
       this.view = [
         { name: 'Blog', router: 'postblog' },
         { name: 'Contact List', router: 'contact' },
@@ -37,10 +38,6 @@ export class HomeComponent implements OnInit {
 
       ];
       views = 'admin/' + this.view[0].router
-    } 
-    else {
-      this.logout();
-    }
 
 
     this.router.navigateByUrl(views);
