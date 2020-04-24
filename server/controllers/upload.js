@@ -1,3 +1,14 @@
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'public/uploads/');
+  },
+  filename(req, file, cb) {
+    console.log(file);
+    cb(null, file.originalname);
+  }
+});
 /**
  * @class UserController
  *
@@ -17,30 +28,47 @@ class FileController {
    */
   static async upload(req, res) {
     try {
-      if (!req.files) {
-        res.send({
-          status: false,
-          message: 'No file uploaded'
+      const upload = multer({ storage }).single('files');
+      upload(req, res, (err) => {
+        if (err) {
+          console.log(err);
+          return res.send(err);
+        }
+        console.log('file uploaded to server');
+        console.log(req.file);
+
+        // SEND FILE TO CLOUDINARY
+        const cloudinary = require('cloudinary').v2;
+        cloudinary.config({
+          cloud_name: 'dihl0midk',
+          api_key: '774732129924841',
+          api_secret: '0qnLfcObIaNR2Acc4N40Sy29pKM'
         });
-      } else {
-        // Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
-        const { files } = req.files;
 
-        // Use the mv() method to place the file in upload directory (i.e. "uploads")
-        files.mv(`./public/uploads/${files.name}`);
-
-        // send response
-        res.send({
-          status: true,
-          message: 'File uploaded successful',
-          data: {
-            name: files.name,
-            mimetype: files.mimetype,
-            size: files.size,
-            path: `https://resoutcefulestatemanagement.herokuapp.com/ftp/uploads/${files.name}`
+        const { path } = req.file;
+        const uniqueFilename = new Date().toISOString();
+        console.log(path, 'path');
+        cloudinary.uploader.upload(
+          path,
+          { public_id: `blog/${uniqueFilename}`, tags: 'blog' }, // directory and tags are optional
+          (err, image) => {
+            if (err) return res.send(err);
+            console.log('file uploaded to Cloudinary');
+            // remove file from server
+            const fs = require('fs');
+            fs.unlinkSync(path);
+            // return image details
+            res.send({
+              status: true,
+              message: 'File uploaded successful',
+              data: {
+                path: image.url
+              }
+            });
+            // res.json(image);
           }
-        });
-      }
+        );
+      });
     } catch (err) {
       res.status(500).send(err);
     }
